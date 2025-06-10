@@ -17,6 +17,7 @@
             color: #333;
             overflow-x: hidden;
         }
+        
         .home-btn {
             position: fixed;
             top: 30px;
@@ -38,6 +39,7 @@
             color: white;
             transform: scale(1.05);
         }
+        
         .presentation-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -113,12 +115,14 @@
             margin-bottom: 20px;
             color: #2a5298;
         }
+        
         .title {
             font-size: 3rem;
             font-weight: bold;
             color: #2B5797;
             margin-bottom: 10px;
         }
+        
         .subtitle {
             font-size: 1.4rem;
             color: #666;
@@ -741,12 +745,27 @@
         function showTimeline() {
             window.open('sicofLiteLineatiempo.html', '_blank');
         }
-        
 
-        // Inicializar
+        // Función para leer parámetros URL y navegar al slide correcto
+        function checkURLParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slideParam = urlParams.get('slide');
+            
+            if (slideParam) {
+                const slideNumber = parseInt(slideParam);
+                if (slideNumber >= 1 && slideNumber <= totalSlides) {
+                    // Navegar al slide especificado (restamos 1 porque el índice empieza en 0)
+                    goToSlide(slideNumber - 1);
+                }
+            }
+        }
+
+        // Inicializar todo cuando la página cargue
         document.addEventListener('DOMContentLoaded', () => {
             createIndicators();
             updateNavigation();
+            // Verificar si hay parámetros URL para navegar a un slide específico
+            checkURLParameters();
         });
     </script>
 </body>
