@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas de información del FNE</title>
+    <title>Sicof Lite Linea de Tiempo</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #003366 0%, #006633 50%, #0066CC 100%);
+            background: linear-gradient(135deg, #4A90E2 0%, #5BA4D6 30%, #6CB8CA 60%, #7DCCBE 100%);
             min-height: 100vh;
             color: #333;
         }
@@ -74,7 +74,7 @@
             font-size: 2.5rem;
             font-weight: bold;
             margin-bottom: 10px;
-            background: linear-gradient(45deg, #003366, #006633);
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -109,9 +109,9 @@
         }
 
         .toggle-btn.active {
-            background: linear-gradient(45deg, #003366, #006633);
+            background: linear-gradient(45deg, #4A90E2, #6CB8CA);
             color: white;
-            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.4);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
         }
 
         .timeline-container {
@@ -135,10 +135,10 @@
             bottom: 0;
             width: 4px;
             background: linear-gradient(to bottom, 
-                #003366 0%, 
-                #006633 30%, 
-                #0066CC 60%, 
-                #003366 100%);
+                #4A90E2 0%, 
+                #5BA4D6 30%, 
+                #6CB8CA 60%, 
+                #7DCCBE 100%);
             transform: translateX(-50%);
             border-radius: 2px;
         }
@@ -185,12 +185,12 @@
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .milestone-content.critical { border-left-color: #003366; }
-        .milestone-content.strategic { border-left-color: #0066CC; }
-        .milestone-content.operational { border-left-color: #006633; }
-        .milestone-content.quality { border-left-color: #009966; }
-        .milestone-content.frontend { border-left-color: #0099CC; }
-        .milestone-content.specialized { border-left-color: #004488; }
+        .milestone-content.critical { border-left-color: #2B5797; }
+        .milestone-content.strategic { border-left-color: #4A90E2; }
+        .milestone-content.operational { border-left-color: #5BA4D6; }
+        .milestone-content.quality { border-left-color: #6CB8CA; }
+        .milestone-content.frontend { border-left-color: #7DCCBE; }
+        .milestone-content.specialized { border-left-color: #1e3c72; }
 
         .milestone-indicator {
             position: absolute;
@@ -205,12 +205,12 @@
             z-index: 10;
         }
 
-        .milestone-indicator.critical { background: #003366; }
-        .milestone-indicator.strategic { background: #0066CC; }
-        .milestone-indicator.operational { background: #006633; }
-        .milestone-indicator.quality { background: #009966; }
-        .milestone-indicator.frontend { background: #0099CC; }
-        .milestone-indicator.specialized { background: #004488; }
+        .milestone-indicator.critical { background: #2B5797; }
+        .milestone-indicator.strategic { background: #4A90E2; }
+        .milestone-indicator.operational { background: #5BA4D6; }
+        .milestone-indicator.quality { background: #6CB8CA; }
+        .milestone-indicator.frontend { background: #7DCCBE; }
+        .milestone-indicator.specialized { background: #1e3c72; }
 
         .milestone-header {
             display: flex;
@@ -227,7 +227,7 @@
         }
 
         .milestone-date {
-            background: linear-gradient(45deg, #003366, #006633);
+            background: linear-gradient(45deg, #4A90E2, #6CB8CA);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -254,13 +254,13 @@
             padding: 15px;
             background: #f8f9fa;
             border-radius: 10px;
-            border-top: 3px solid #006633;
+            border-top: 3px solid #6CB8CA;
         }
 
         .metric-value {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: #2B5797;
         }
 
         .metric-label {
@@ -274,7 +274,7 @@
         }
 
         .deliverables h4 {
-            color: #2c3e50;
+            color: #2B5797;
             margin-bottom: 10px;
             font-size: 1.1rem;
         }
@@ -288,15 +288,15 @@
             display: flex;
             align-items: center;
             padding: 8px 12px;
-            background: rgba(0, 102, 51, 0.1);
+            background: rgba(108, 184, 202, 0.1);
             border-radius: 8px;
-            border-left: 3px solid #006633;
+            border-left: 3px solid #6CB8CA;
             font-size: 0.9rem;
         }
 
         .deliverable-item::before {
             content: '✓';
-            color: #006633;
+            color: #6CB8CA;
             font-weight: bold;
             margin-right: 8px;
         }
@@ -313,21 +313,21 @@
         }
 
         .impact-level.high {
-            background: rgba(0, 51, 102, 0.1);
-            color: #003366;
-            border: 2px solid rgba(0, 51, 102, 0.3);
+            background: rgba(74, 144, 226, 0.1);
+            color: #4A90E2;
+            border: 2px solid rgba(74, 144, 226, 0.3);
         }
 
         .impact-level.medium {
-            background: rgba(0, 102, 204, 0.1);
-            color: #0066CC;
-            border: 2px solid rgba(0, 102, 204, 0.3);
+            background: rgba(108, 184, 202, 0.1);
+            color: #6CB8CA;
+            border: 2px solid rgba(108, 184, 202, 0.3);
         }
 
         .impact-level.support {
-            background: rgba(0, 102, 51, 0.1);
-            color: #006633;
-            border: 2px solid rgba(0, 102, 51, 0.3);
+            background: rgba(91, 164, 214, 0.1);
+            color: #5BA4D6;
+            border: 2px solid rgba(91, 164, 214, 0.3);
         }
 
         .compact-view .milestone-content {
@@ -389,7 +389,7 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #006633, #009966);
+            background: linear-gradient(90deg, #6CB8CA, #7DCCBE);
             border-radius: 4px;
             width: 0;
             animation: progressFill 2s ease-out forwards;
@@ -397,6 +397,28 @@
 
         @keyframes progressFill {
             to { width: 100%; }
+        }
+
+        .home-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #2B5797;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-btn:hover {
+            background: #4A90E2;
+            color: white;
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
@@ -420,10 +442,13 @@
     </style>
 </head>
 <body>
+    <!-- Botón Volver a Presentación -->
+    <button class="home-btn" onclick="goToPresentation()">← Volver a Presentación</button>
+    
     <div class="container">
         <div class="header">
             <h1>Hitos principales</h1>
-            <h1>Sicod Lite</h1>
+            <h1>Sicof Lite</h1>
             <p>Cronología Estratégica del Desarrollo | Febrero - Junio 2025</p>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
@@ -603,7 +628,7 @@
             {
                 id: 7,
                 title: "📊 Despliegue de APIs Especializadas",
-                date: "22-26 May 2025",
+                date: "7 May 2025 - Pendiente",
                 type: "specialized",
                 duration: 5,
                 commits: 16,
@@ -753,6 +778,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             renderTimeline();
         });
+
+        // Función para ir a la presentación - slide 3
+        function goToPresentation() {
+            // Abre la presentación con parámetro URL para ir al slide 3
+            window.open('sicofLitePPT.html?slide=3', '_blank');
+        }
     </script>
 </body>
 </html>
