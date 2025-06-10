@@ -362,7 +362,29 @@
                 max-width: 350px;
             }
         }
+        /* Estilos para el botón del cronograma detallado */
+        .timeline-detail-btn {
+            background: linear-gradient(45deg, #4A90E2, #6CB8CA);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 30px 0 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
 
+        .timeline-detail-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.4);
+            background: linear-gradient(45deg, #3a7bc8, #5ba4d6);
+        }
         
     </style>
 </head>
@@ -450,6 +472,10 @@
                         <div class="phase-description">En progreso - Sistema base con funcionalidades principales</div>
                     </div>
                 </div>
+                <!-- Botón para mostrar cronograma detallado -->
+                <button class="timeline-detail-btn" onclick="showTimeline()">
+                    📋 Ver Cronograma Detallado
+                </button>
             </div>
         </div>
 
@@ -685,11 +711,31 @@
             if (e.key === 'ArrowRight') changeSlide(1);
         });
 
+        // Función para leer parámetros URL y navegar al slide correcto
+        function checkURLParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slideParam = urlParams.get('slide');
+            
+            if (slideParam) {
+                const slideNumber = parseInt(slideParam);
+                if (slideNumber >= 1 && slideNumber <= totalSlides) {
+                    // Navegar al slide especificado (restamos 1 porque el índice empieza en 0)
+                    goToSlide(slideNumber - 1);
+                }
+            }
+        }
+
         // Inicializar
         document.addEventListener('DOMContentLoaded', () => {
             createIndicators();
             updateNavigation();
+            // Verificar si hay parámetros URL para navegar a un slide específico
+            checkURLParameters();
         });
+
+        function showTimeline() {
+            window.open('saga2Lineatiempo.html', '_blank');
+        }
     </script>
 </body>
 </html>
