@@ -284,7 +284,7 @@
                 <h2>Sistemas de Información del FNE</h2>
                 <p class="big-text">Sistemas en los que se han realizado desarrollos, transferencia de conocimiento y soporte técnico especializado:</p>
                 <div class="benefits-grid">
-                    <div class="benefit-card clickable-card" onclick="openSicofLite()">
+                    <div class="benefit-card clickable-card" onclick="openSicofFull()">
                         <div class="benefit-icon">🌐</div>
                         <div class="benefit-title">Sicof Full</div>
                     </div>
@@ -292,11 +292,11 @@
                         <div class="benefit-icon">💻</div>
                         <div class="benefit-title">Sicof Lite</div>
                     </div>
-                    <div class="benefit-card clickable-card" onclick="openSicofLite()">
+                    <div class="benefit-card clickable-card" onclick="openSagaLegado()">
                         <div class="benefit-icon">🖥️</div>
                         <div class="benefit-title">Saga Legado</div>
                     </div>
-                    <div class="benefit-card clickable-card" onclick="openSicofLite()">
+                    <div class="benefit-card clickable-card" onclick="openSaga2()">
                         <div class="benefit-icon">🏢</div>
                         <div class="benefit-title">Saga 2.0</div>
                     </div>
@@ -378,59 +378,17 @@
         });
 
         // Función para abrir la presentación de Sicof Lite
+        function openSicofFull() {
+            window.open('sicofFullPPT.html', '_blank');
+        }
         function openSicofLite() {
-            window.open('data:text/html;charset=utf-8,' + encodeURIComponent(`
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sicof Lite - Presentación</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #4A90E2 0%, #5BA4D6 30%, #6CB8CA 60%, #7DCCBE 100%);
-            color: #333;
-            overflow-x: hidden;
+            window.open('sicofLitePPT.html', '_blank');
         }
-        .presentation-container { max-width: 1200px; margin: 0 auto; position: relative; }
-        .slide {
-            min-height: 100vh; padding: 40px 20px; display: none;
-            align-items: center; justify-content: center; position: relative;
+        function openSagaLegado() {
+            window.open('sicofLitePPT.html', '_blank');
         }
-        .slide.active { display: flex; }
-        .slide-content {
-            background: rgba(255, 255, 255, 0.95); border-radius: 20px; padding: 60px;
-            max-width: 1000px; width: 100%; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px); text-align: center; position: relative;
-            animation: slideIn 0.8s ease-out;
-        }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(45deg, #1e3c72, #2a5298); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .big-text { font-size: 1.3rem; line-height: 1.6; color: #555; margin: 30px 0; }
-        .back-btn {
-            position: fixed; top: 30px; left: 30px; background: rgba(255, 255, 255, 0.9);
-            border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer;
-            font-weight: bold; color: #2B5797; z-index: 1000; transition: all 0.3s ease;
-        }
-        .back-btn:hover { background: #4A90E2; color: white; }
-    </style>
-</head>
-<body>
-    <button class="back-btn" onclick="window.close()">← Volver</button>
-    <div class="presentation-container">
-        <div class="slide active">
-            <div class="slide-content">
-                <h1>🚀 Sicof Lite</h1>
-                <p class="big-text">Sistema en desarrollo activo con avances significativos en modernización tecnológica.</p>
-                <p class="big-text">Esta es una presentación detallada del proyecto Sicof Lite.</p>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
-            `), '_blank');
+        function openSaga2() {
+            window.open('sicofLitePPT.html', '_blank');
         }
 
         // Inicializar
