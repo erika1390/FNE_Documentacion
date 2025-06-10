@@ -424,11 +424,26 @@
             window.open('saga2PPT.html', '_blank');
         }
 
+        // Función para leer parámetros URL y navegar al slide correcto
+        function checkURLParameters() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slideParam = urlParams.get('slide');
+            
+            if (slideParam) {
+                const slideNumber = parseInt(slideParam);
+                if (slideNumber >= 1 && slideNumber <= totalSlides) {
+                    // Navegar al slide especificado (restamos 1 porque el índice empieza en 0)
+                    goToSlide(slideNumber - 1);
+                }
+            }
+        }
 
-        // Inicializar
+        // Inicializar todo cuando la página cargue
         document.addEventListener('DOMContentLoaded', () => {
             createIndicators();
             updateNavigation();
+            // Verificar si hay parámetros URL para navegar a un slide específico
+            checkURLParameters();
         });
     </script>
 </body>
