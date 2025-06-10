@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema FNE - Presentación Ejecutiva</title>
+    <title>Saga Legado</title>
     <style>
         * {
             margin: 0;
@@ -17,7 +17,27 @@
             color: #333;
             overflow-x: hidden;
         }
+        .home-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #2B5797;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
 
+        .home-btn:hover {
+            background: #4A90E2;
+            color: white;
+            transform: scale(1.05);
+        }
         .presentation-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -93,7 +113,12 @@
             margin-bottom: 20px;
             color: #2a5298;
         }
-
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2B5797;
+            margin-bottom: 10px;
+        }
         .subtitle {
             font-size: 1.4rem;
             color: #666;
@@ -340,12 +365,15 @@
     </style>
 </head>
 <body>
+    <!-- Botón Ir al Inicio -->
+    <button class="home-btn" onclick="goToIndex()">🏠 Inicio</button>
     <div class="presentation-container">
         <!-- Slide 1: Título -->
         <div class="slide active">
             <div class="slide-content">
-                <div class="slide-number">1 de 8</div>
-                <h1>🚀 Sicof Lite</h1>
+                <div class="slide-number">1 de 8</div>   
+                <div class="benefit-icon">🖥️</div>
+                <div class="title">Saga Legado</div>
                 <p class="subtitle">Avances en la Modernización Tecnológica</p>
                 <div class="stats-grid">
                     <div class="stat-card">
@@ -669,6 +697,11 @@
             if (newSlide >= 0 && newSlide < totalSlides) {
                 goToSlide(newSlide);
             }
+        }
+
+        // Función para ir a la página index
+        function goToIndex() {
+            window.location.href = 'index.html';
         }
 
         // Navegación con teclado

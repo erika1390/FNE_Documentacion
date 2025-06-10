@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistemas de Información - FNE</title>
+    <title>Inicio</title>
     <style>
         * {
             margin: 0;
@@ -238,6 +238,28 @@
             z-index: 1000;
         }
 
+        .home-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #2B5797;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-btn:hover {
+            background: #4A90E2;
+            color: white;
+            transform: scale(1.05);
+        }
+
         .indicator {
             width: 12px;
             height: 12px;
@@ -268,6 +290,8 @@
 </head>
 <body>
     <div class="presentation-container">
+        <!-- Botón Ir al Inicio -->
+        <button class="home-btn" onclick="goToSlide(0)">🏠 Inicio</button>
         <!-- Slide 1: Portada -->
         <div class="slide active">
             <div class="slide-content">
@@ -314,6 +338,14 @@
                     <p class="questions-text">
                         Estamos aquí para resolver todas sus dudas sobre los sistemas de información del FNE
                     </p>
+                    <p class="questions-text">
+                        No duden en contactarnos para mayor información o aclaraciones
+                    </p>
+                    
+                    <div class="contact-info">
+                        <h4>📧 Contacto</h4>
+                        <p>Equipo de Sistemas de Información - FNE</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -385,11 +417,12 @@
             window.open('sicofLitePPT.html', '_blank');
         }
         function openSagaLegado() {
-            window.open('sicofLitePPT.html', '_blank');
+            window.open('sagaLegadoPPT.html', '_blank');
         }
         function openSaga2() {
-            window.open('sicofLitePPT.html', '_blank');
+            window.open('saga2PPT.html', '_blank');
         }
+
 
         // Inicializar
         document.addEventListener('DOMContentLoaded', () => {
