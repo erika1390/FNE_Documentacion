@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sicof Full</title>
+    <title>SICOF - Sistema de Control de Fármacos</title>
     <style>
         * {
             margin: 0;
@@ -63,11 +63,12 @@
             padding: 60px;
             max-width: 1000px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
             backdrop-filter: blur(10px);
             text-align: center;
             position: relative;
             animation: slideIn 0.8s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         @keyframes slideIn {
@@ -87,184 +88,147 @@
             right: 30px;
             background: linear-gradient(45deg, #4A90E2, #6CB8CA);
             color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 12px 24px;
+            border-radius: 25px;
             font-size: 0.9rem;
             font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
             background: linear-gradient(45deg, #1e3c72, #2a5298);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             font-size: 2.5rem;
             margin-bottom: 30px;
             color: #1e3c72;
+            font-weight: 600;
         }
 
         h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
-            color: #2a5298;
-        }
-        .title {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #2B5797;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            font-size: 1.4rem;
-            color: #666;
-            margin-bottom: 40px;
+            color: #4A90E2;
+            font-weight: 600;
         }
 
-        .stats-grid {
+        .subtitle {
+            font-size: 1.8rem;
+            color: #718096;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin: 40px 0;
         }
 
-        .stat-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        .feature-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
             padding: 30px;
             border-radius: 15px;
-            border-left: 5px solid #4A90E2;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 144, 226, 0.1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 144, 226, 0.15);
         }
 
-        .stat-number {
-            font-size: 2.5rem;
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #4A90E2, #6CB8CA);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            color: #4A90E2;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
             font-weight: bold;
             color: #2B5797;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .stat-label {
-            font-size: 1.1rem;
-            color: #666;
+        .feature-description {
+            color: #718096;
+            line-height: 1.6;
+            font-size: 1rem;
         }
 
-        .benefits-grid {
+        .tech-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            border-top: 4px solid #6CB8CA;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .benefit-title {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #2B5797;
-            margin-bottom: 10px;
-        }
-
-        .benefit-description {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .timeline-visual {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .phase-card {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            width: 280px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid;
-            text-align: left;
-        }
-
-        .phase-card.foundation { border-left-color: #2B5797; }
-        .phase-card.security { border-left-color: #4A90E2; }
-        .phase-card.quality { border-left-color: #5BA4D6; }
-        .phase-card.apis { border-left-color: #6CB8CA; }
-        .phase-card.frontend { border-left-color: #7DCCBE; }
-
-        .phase-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .phase-date {
-            background: #f8f9fa;
-            padding: 5px 10px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        .phase-description {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin: 30px 0;
             text-align: left;
         }
 
-        .feature-item {
+        .tech-item {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 10px;
-            border-left: 4px solid #6CB8CA;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            border-left: 4px solid #4A90E2;
         }
 
-        .feature-icon {
-            font-size: 1.5rem;
+        .tech-item h4 {
             color: #4A90E2;
-            margin-top: 2px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
         }
 
-        .feature-text {
-            flex: 1;
+        .tech-item p {
+            color: #666;
             line-height: 1.5;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4A90E2;
+            display: block;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
 
         .navigation {
@@ -286,7 +250,8 @@
             font-weight: bold;
             color: #2B5797;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .nav-btn:hover {
@@ -298,6 +263,7 @@
         .nav-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
         .slide-indicators {
@@ -323,20 +289,58 @@
         .indicator.active {
             background: white;
             transform: scale(1.3);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
 
-        .big-text {
-            font-size: 1.3rem;
-            line-height: 1.6;
-            color: #555;
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            background: linear-gradient(135deg, #4A90E2, #6CB8CA);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 200px;
+            margin: 10px;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #4A90E2;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 30px 0;
         }
 
-        .highlight {
-            background: linear-gradient(120deg, rgba(108, 184, 202, 0.2) 0%, rgba(108, 184, 202, 0.2) 100%);
-            padding: 3px 8px;
-            border-radius: 5px;
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4A90E2, #6CB8CA);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
             font-weight: bold;
+            margin: 0 20px;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
         }
 
         @media (max-width: 768px) {
@@ -344,304 +348,285 @@
                 padding: 30px 20px;
             }
             
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.8rem; }
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
             
-            .stats-grid,
-            .benefits-grid {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
             
-            .timeline-visual {
+            .process-flow {
                 flex-direction: column;
-                align-items: center;
             }
             
-            .phase-card {
-                width: 100%;
-                max-width: 350px;
+            .process-step:not(:last-child)::after {
+                content: '↓';
+                right: 50%;
+                bottom: -30px;
+                top: auto;
+                transform: translateX(50%);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Botón Ir al Inicio -->
-    <button class="home-btn" onclick="goToIndex()">🏠 Inicio</button>
+     <!-- Botón Ir al Inicio -->
+     <button class="home-btn" onclick="goToIndex()">🏠 Inicio</button>
     <div class="presentation-container">
-        <!-- Slide 1: Título -->
+        <!-- Slide 1: Portada -->
         <div class="slide active">
             <div class="slide-content">
-                <div class="slide-number">1 de 8</div>   
-                <div class="benefit-icon">🌐</div>
-                <div class="title">Sicof Full</div>
-                <p class="subtitle">Avances en la Modernización Tecnológica</p>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Meses de Desarrollo</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">79</div>
-                        <div class="stat-label">APIs Creadas</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">40%</div>
-                        <div class="stat-label">Progreso Actual</div>
-                    </div>
+                <div class="slide-number">1 de 8</div>
+                <div class="logo-container">
+                    <div class="logo">S</div>
+                    <div class="logo">I</div>
+                    <div class="logo">C</div>
+                    <div class="logo">O</div>
+                    <div class="logo">F</div>
                 </div>
-                <p class="big-text">
-                    Presentamos los avances significativos en el desarrollo del sistema de sicof lite <span class="highlight">del FNE</span>
-                </p>
+                <h1>SICOF</h1>
+                <div class="subtitle">Sistema de Control de Fármacos</div>
+                <div class="subtitle">Fondo Nacional de Estupefacientes - MSPS</div>
             </div>
         </div>
 
-        <!-- Slide 2: ¿Qué se construyó? -->
+        <!-- Slide 2: Arquitectura Técnica -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">2 de 8</div>
-                <h2>¿Qué se está construyendo? 🏗️</h2>
-                <p class="big-text">Un sistema completo de gestión administrativa con tres componentes principales en desarrollo:</p>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔐</div>
-                        <div class="benefit-title">Sistema de Seguridad</div>
-                        <div class="benefit-description">✅ Completado - Control de acceso seguro con usuarios, roles y permisos</div>
+                <h2>Arquitectura Técnica</h2>
+                <h3>Clean Architecture (Arquitectura Limpia)</h3>
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <h4>🎯 Domain Layer</h4>
+                        <p>Entidades del negocio, reglas de dominio, value objects y eventos</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">📊</div>
-                        <div class="benefit-title">Panel de Administración</div>
-                        <div class="benefit-description">🔄 En desarrollo inicial - Interfaz web intuitiva para gestionar las operaciones</div>
+                    <div class="tech-item">
+                        <h4>💼 Business Layer</h4>
+                        <p>Casos de uso, comandos y consultas (CQRS), validadores</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔗</div>
-                        <div class="benefit-title">Sistema de Integración</div>
-                        <div class="benefit-description">🔄 Parcialmente completada - Conecta diferentes sistemas y procesos</div>
+                    <div class="tech-item">
+                        <h4>🔧 Infrastructure Layer</h4>
+                        <p>Entity Framework, Azure Blob Storage, configuraciones</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4>🌐 API Layer</h4>
+                        <p>Controladores REST, middlewares, autenticación JWT</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 3: Cronología del Proyecto -->
+        <!-- Slide 3: Tecnologías -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">3 de 8</div>
-                <h2>Cronología del Desarrollo 📅</h2>
-                <div class="timeline-visual">
-                    <div class="phase-card foundation">
-                        <div class="phase-title">🏗️ Estructura del Desarrollo ✅</div>
-                        <div class="phase-date">Feb 14-28, 2025</div>
-                        <div class="phase-description">Completado - Estructura base del sistema creada</div>
+                <h2>Stack Tecnológico</h2>
+                <div class="content-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <div class="feature-title">Backend</div>
+                        <div class="feature-description">.NET Core, Entity Framework, CQRS Pattern, Result Pattern</div>
                     </div>
-                    <div class="phase-card security">
-                        <div class="phase-title">🔐 Seguridad ✅</div>
-                        <div class="phase-date">Mar 15-20, 2025</div>
-                        <div class="phase-description">Completado - Sistema de usuarios y permisos funcional</div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <div class="feature-title">Frontend</div>
+                        <div class="feature-description">Vue.js, Plantillas del MSPS, JavaScript, CSS responsivo</div>
                     </div>
-                    <div class="phase-card quality">
-                        <div class="phase-title">🧪 Calidad ✅</div>
-                        <div class="phase-date">Abr 1-21, 2025</div>
-                        <div class="phase-description">Completado - 375+ pruebas automatizadas implementadas</div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🗄️</div>
+                        <div class="feature-title">Base de Datos</div>
+                        <div class="feature-description">SQL Server con tablas temporales para auditoría</div>
                     </div>
-                    <div class="phase-card apis">
-                        <div class="phase-title">🎯 Funcionalidades 🔄</div>
-                        <div class="phase-date">May 8-21, 2025</div>
-                        <div class="phase-description">En progreso - Sistema base con funcionalidades principales</div>
-                    </div>
-                    <div class="phase-card frontend">
-                        <div class="phase-title">🎨 Interfaz ⏳</div>
-                        <div class="phase-date">May 7 - Pendiente</div>
-                        <div class="phase-description">Fase inicial - Interfaz web para usuarios finales</div>
+                    <div class="feature-card">
+                        <div class="feature-icon">☁️</div>
+                        <div class="feature-title">Nube</div>
+                        <div class="feature-description">Azure DevOps, Azure Blob Storage, Contenedores Docker</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 4: Características Principales -->
+        <!-- Slide 4: Módulos Principales -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">4 de 8</div>
-                <h2>Características Desarrolladas ⚙️</h2>
-                <p class="big-text">APIs y funcionalidades implementadas en los dos sistemas:</p>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="feature-icon">🔐</div>
-                        <div class="feature-text">
-                            <strong>✅ Sistema de Seguridad Completo:</strong> Autenticación, usuarios, roles y permisos granulares
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🏢</div>
-                        <div class="feature-text">
-                            <strong>✅ Integration API (70 endpoints):</strong> Gestión de aplicaciones, módulos, usuarios, ciudades, departamentos y auditoría
-                        </div>
-                    </div>
-                    <div class="feature-item">
+                <h2>Módulos del Sistema</h2>
+                <div class="content-grid">
+                    <div class="feature-card">
                         <div class="feature-icon">📋</div>
-                        <div class="feature-text">
-                            <strong>✅ SiCof Lite API (9 endpoints):</strong> Establecimientos, logs, tipos de documentos, personas, procedimientos y usuarios
-                        </div>
+                        <div class="feature-title">Inscripciones</div>
+                        <div class="feature-description">Registro de entidades titulares, terceros nacionales e internacionales</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📊</div>
-                        <div class="feature-text">
-                            <strong>✅ Sistema de Auditoría:</strong> Registro automático de actividades y logs del sistema
-                        </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏥</div>
+                        <div class="feature-title">Registro Sanitario</div>
+                        <div class="feature-description">Gestión de registros sanitarios de medicamentos</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🗺️</div>
-                        <div class="feature-text">
-                            <strong>✅ Datos Geográficos:</strong> APIs para manejo de ciudades y departamentos
-                        </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📜</div>
+                        <div class="feature-title">Licencias ICA</div>
+                        <div class="feature-description">Tramitación de licencias de venta del ICA</div>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-text">
-                            <strong>✅ Documentación Swagger:</strong> Todas las APIs completamente documentadas y probables en línea
-                        </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📤</div>
+                        <div class="feature-title">Certificados</div>
+                        <div class="feature-description">Emisión de certificados de exportación y BPM</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📁</div>
+                        <div class="feature-title">Gestión Documental</div>
+                        <div class="feature-description">Administración de documentos por trámite</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-title">Workflow</div>
+                        <div class="feature-description">Flujo de trabajo y asignación de trámites</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 5: Beneficios para los Usuarios -->
+        <!-- Slide 5: Proceso de Desarrollo -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">5 de 8</div>
-                <h2>Beneficios en Desarrollo 💼</h2>
-                <p class="big-text">Beneficios que se obtendrán cuando el sistema esté completo:</p>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">⚡</div>
-                        <div class="benefit-title">Mayor Eficiencia</div>
-                        <div class="benefit-description">Procesos automatizados que reducen el tiempo de trabajo manual</div>
+                <h2>Proceso de Desarrollo</h2>
+                <div class="process-flow">
+                    <div class="process-step">
+                        <h4>Análisis</h4>
+                        <p>Requerimientos y HU</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔒</div>
-                        <div class="benefit-title">Seguridad Mejorada</div>
-                        <div class="benefit-description">Protección avanzada de datos con control de acceso granular</div>
+                    <div class="process-step">
+                        <h4>Desarrollo</h4>
+                        <p>Sprints Ágiles</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">📱</div>
-                        <div class="benefit-title">Acceso Web</div>
-                        <div class="benefit-description">Disponible desde cualquier navegador web moderno</div>
+                    <div class="process-step">
+                        <h4>Pruebas</h4>
+                        <p>QA y Testing</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🎯</div>
-                        <div class="benefit-title">Interfaz Intuitiva</div>
-                        <div class="benefit-description">Diseño fácil de usar que no requiere entrenamiento extenso</div>
+                    <div class="process-step">
+                        <h4>Transferencia</h4>
+                        <p>Conocimiento</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">📈</div>
-                        <div class="benefit-title">Mejor Trazabilidad</div>
-                        <div class="benefit-description">Seguimiento completo de todas las acciones y cambios</div>
+                    <div class="process-step">
+                        <h4>Producción</h4>
+                        <p>Despliegue</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔄</div>
-                        <div class="benefit-title">Integración Total</div>
-                        <div class="benefit-description">Conecta todos los procesos en una sola plataforma</div>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <div class="stat-label">Fases Desarrolladas</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">894</span>
+                        <div class="stat-label">Horas Ejecutadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">Modalidades MVP</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 6: Números del Proyecto -->
+        <!-- Slide 6: Características Técnicas -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">6 de 8</div>
-                <h2>El Proyecto en Números 📊</h2>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">375+</div>
-                        <div class="stat-label">Pruebas Automatizadas</div>
+                <h2>Características Técnicas Destacadas</h2>
+                <div class="tech-list">
+                    <div class="tech-item">
+                        <h4>🔒 Seguridad</h4>
+                        <p>Autenticación JWT, middleware de sanitización, validación de entrada</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">79</div>
-                        <div class="stat-label">APIs Funcionales</div>
+                    <div class="tech-item">
+                        <h4>📊 Auditoría</h4>
+                        <p>Tablas temporales de SQL Server para trazabilidad completa</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">12</div>
-                        <div class="stat-label">Módulos Principales</div>
+                    <div class="tech-item">
+                        <h4>🔄 Patrones</h4>
+                        <p>CQRS, Repository, Result Pattern, Dependency Injection</p>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-number">102</div>
-                        <div class="stat-label">Días de Desarrollo</div>
+                    <div class="tech-item">
+                        <h4>📱 Responsivo</h4>
+                        <p>Diseño adaptable siguiendo lineamientos del MSPS</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4>🧪 Testing</h4>
+                        <p>Pruebas unitarias, cobertura de código, integración continua</p>
+                    </div>
+                    <div class="tech-item">
+                        <h4>☁️ Cloud Native</h4>
+                        <p>Contenerización Docker, escalabilidad en Azure</p>
                     </div>
                 </div>
-                <p class="big-text">
-                    <span class="highlight">375+ pruebas automatizadas</span> garantizan que el sistema funcione correctamente las 24 horas del día, los 7 días de la semana.
-                </p>
             </div>
         </div>
 
-        <!-- Slide 7: Estado Actual -->
+        <!-- Slide 7: Estado de Producción -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">7 de 8</div>
-                <h2>Estado Actual del Desarrollo 🔄</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🏗️</div>
-                        <div class="benefit-title">Arquitectura Sólida</div>
-                        <div class="benefit-description">Fundación técnica robusta completada con estructura escalable</div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔐</div>
-                        <div class="benefit-title">Seguridad Operativa</div>
-                        <div class="benefit-description">Sistema de autenticación y permisos completamente funcional</div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔄</div>
-                        <div class="benefit-title">Desarrollo Activo</div>
-                        <div class="benefit-description">Funcionalidades principales en construcción continua</div>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🧪</div>
-                        <div class="benefit-title">Calidad Garantizada</div>
-                        <div class="benefit-description">375+ pruebas automatizadas aseguran el funcionamiento correcto</div>
+                <h2>Estado de Paso a Producción ⚠️</h2>
+                <div class="feature-card" style="max-width: 700px; margin: 0 auto 40px auto; border: 2px solid #f39c12;">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-title" style="color: #d68910;">Sistema Listo - Pendiente Paso a Producción</div>
+                    <div class="feature-description" style="font-size: 1.2rem; color: #7f6000;">
+                        El desarrollo de SICOF está completado y funcionalmente operativo, pero se encuentra en espera de resolver aspectos de seguridad requeridos para el despliegue en producción.
                     </div>
                 </div>
-                <p class="big-text">
-                    El sistema tiene <span class="highlight">fundaciones sólidas completadas (40% del proyecto total)</span> con arquitectura robusta y sistema de seguridad funcional.
-                </p>
+
+                <div class="tech-list">
+                    <div class="tech-item" style="border-left-color: #27ae60;">
+                        <h4>✅ Sistema Completado</h4>
+                        <p>Todas las funcionalidades del MVP han sido desarrolladas, probadas y validadas satisfactoriamente</p>
+                    </div>
+                    <div class="tech-item" style="border-left-color: #e67e22;">
+                        <h4>⏳ Filtros de Seguridad Pendientes</h4>
+                        <p>Se requiere subsanar configuraciones de seguridad específicas antes del despliegue en el ambiente productivo</p>
+                    </div>
+                    <div class="tech-item" style="border-left-color: #3498db;">
+                        <h4>🔧 Acciones Requeridas</h4>
+                        <p>Implementación de políticas de seguridad adicionales y validación de cumplimiento normativo</p>
+                    </div>
+                    <div class="tech-item" style="border-left-color: #9b59b6;">
+                        <h4>📋 Próximo Paso</h4>
+                        <p>Coordinación con el equipo de seguridad del MSPS para resolver los filtros pendientes</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; padding: 25px; background: linear-gradient(135deg, #fff3cd, #ffeeba); border-radius: 15px; border: 1px solid #f39c12;">
+                    <h3 style="color: #856404; margin-bottom: 15px;">⚡ Estado Actual</h3>
+                    <p style="color: #856404; font-size: 1.1rem; margin: 0;">
+                        <strong>Sistema 100% funcional</strong> esperando autorización de seguridad para despliegue en producción
+                    </p>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 8: Próximos Pasos -->
+        <!-- Slide 8: Cierre -->
         <div class="slide">
             <div class="slide-content">
                 <div class="slide-number">8 de 8</div>
-                <h2>Próximos Pasos 🚀</h2>
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="feature-icon">👨‍🏫</div>
-                        <div class="feature-text">
-                            <strong>Desarrollo de Funcionalidades:</strong> Completar módulos principales del sistema
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🔄</div>
-                        <div class="feature-text">
-                            <strong>Desarrollo de Interfaz:</strong> Crear pantallas web para usuarios finales
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📞</div>
-                        <div class="feature-text">
-                            <strong>Pruebas y Validación:</strong> Verificación con usuarios reales del sistema completo
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-text">
-                            <strong>Puesta en Marcha:</strong> Implementación gradual en todas las áreas del FNE
-                        </div>
+                <h2>Estado del Proyecto</h2>
+                <div class="feature-card" style="max-width: 600px; margin: 0 auto;">
+                    <div class="feature-icon">✅</div>
+                    <div class="feature-title">Proyecto Completado Satisfactoriamente</div>
+                    <div class="feature-description" style="font-size: 1.2rem; margin-top: 30px;">
+                        El sistema SICOF ha sido desarrollado, probado y entregado al Fondo Nacional de Estupefacientes con todas las funcionalidades requeridas para el MVP de las modalidades 1 y 2.
                     </div>
                 </div>
-                <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #e6f7ff, #f0faff); border-radius: 15px;">
-                    <h3>¡Vamos por buen camino! 🚀</h3>
-                    <p class="big-text">
-                        El sistema SiCof Lite tiene <span class="highlight">cimientos sólidos establecidos</span> y está avanzando hacia una transformación completa de la gestión del FNE.
-                    </p>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <div class="stat-label">Transferencia Completada</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">✓</span>
+                        <div class="stat-label">Recepción a Satisfacción</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -697,11 +682,6 @@
             if (newSlide >= 0 && newSlide < totalSlides) {
                 goToSlide(newSlide);
             }
-        }
-
-        // Función para ir a la página index
-        function goToIndex() {
-            window.location.href = 'index.html?slide=2';
         }
 
         // Navegación con teclado
